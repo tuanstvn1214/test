@@ -8,11 +8,12 @@ app.get('/', async (req, res) => {
     const fixieRequest = request.defaults({ proxy: process.env.FIXIE_URL })
 
     fixieRequest(
-        'http://nienluannganh.herokuapp.com/test',
+        'https://nienluannganh.herokuapp.com/test',
         (err, res, body) => {
             console.log(`Got response: ${res.statusCode}`)
         }
     )
+    res.send(res)
 })
 app.listen(process.env.PORT, () => {
     console.log(process.env.PORT)

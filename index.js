@@ -5,7 +5,10 @@ var port = 8800
 app.get('/', async (req, res) => {
     const request = require('request')
 
-    const fixieRequest = request.defaults({ proxy: process.env.FIXIE_URL })
+    const fixieRequest = request.defaults({
+        method: 'POST',
+        proxy: process.env.FIXIE_URL,
+    })
 
     fixieRequest(
         'https://nienluannganh.herokuapp.com/test',

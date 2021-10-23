@@ -20,6 +20,6 @@ app.get('/', async (req, res) => {
 
     console.log(proxyRequest)
 })
-app.listen(process.env.port, () => {
-    console.log(process.env.port)
+app.listen(process.env.PORT, () => {
+    console.log(process.env.PORT)
 })

@@ -4,21 +4,15 @@ const app = express()
 var port = 8800
 app.get('/', async (req, res) => {
     const request = require('request')
-    const proxyRequest = await request({
-        method: 'POST',
-        uri: 'http://nienluannganh.herokuapp.com/test',
-        headers: {
-            'Content-Type': 'application/json; charset=utf-8',
-            crossDomain: true,
-        },
 
-        timeout: 10000,
-        followRedirect: true,
-        maxRedirects: 10,
-        proxy: process.env.IPB_HTTP,
-    })
+    const fixieRequest = request.defaults({ proxy: process.env.FIXIE_URL })
 
-    console.log(proxyRequest)
+    fixieRequest(
+        'http://nienluannganh.herokuapp.com/test',
+        (err, res, body) => {
+            console.log(`Got response: ${res.statusCode}`)
+        }
+    )
 })
 app.listen(process.env.PORT, () => {
     console.log(process.env.PORT)

@@ -3,6 +3,7 @@ const express = require('express')
 const app = express()
 var port = 8800
 app.get('/', async (req, res) => {
+  res.send('asd')
     const request = require('request')
 
     const fixieRequest = request.defaults({

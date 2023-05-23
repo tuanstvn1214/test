@@ -16,6 +16,7 @@ app.get('/', async (req, res) => {
             console.log(`Got response: ${res.statusCode}`)
         }
     )
+  console.log('sdfsdfsdfsdf sdf sdf sd fsd fsd f')
     res.send('asd')
 })
 app.listen(process.env.PORT, () => {

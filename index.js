@@ -19,6 +19,6 @@ app.get('/', async (req, res) => {
   console.log('sdfsdfsdfsdf sdf sdf sd fsd fsd f')
     res.send('asd')
 })
-app.listen(process.env.PORT, () => {
+app.listen(10000, () => {
     console.log(process.env.PORT)
 })
